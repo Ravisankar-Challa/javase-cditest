@@ -17,14 +17,14 @@ public class HttpClientTest {
     static void initialize() {
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
         container = initializer.disableDiscovery()
-                               .addPackages(RestClientServiceProducer.class, MiscellaneousInfoService.class)
+                               .addPackages(RestClientServiceProducer.class, DataInfoService.class)
                                .initialize();
     }
 
     @Test
     void test() {
-        MiscellaneousInfoService miscellaneousInfoService = 
-                container.select(MiscellaneousInfoService.class).get();
+        DataInfoService miscellaneousInfoService = 
+                container.select(DataInfoService.class).get();
         System.out.println(miscellaneousInfoService.fetchMiscellaneousInfo());
     }
 
